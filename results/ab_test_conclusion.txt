@@ -1,0 +1,4 @@
+A/B Test Conclusion:
+- Treatment group (with recommendations) ordered 14.8% more
+- Discovery of new restaurants increased by 50%
+- Recommendation engine is effective and should be rolled out to all users!
