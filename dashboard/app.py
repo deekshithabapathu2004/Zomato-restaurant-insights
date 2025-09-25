@@ -16,12 +16,14 @@ st.set_page_config(
 # ============================
 #  LOAD MODELS & DATA
 # ============================
+import skops.io as sio
+
 @st.cache_resource
 def load_models():
-    model = joblib.load('models/rhs_model.pkl')
-    imputer = joblib.load('models/imputer.pkl')
-    cosine_sim = joblib.load('models/cosine_sim_small.pkl')
-    restaurant_names = joblib.load('models/restaurant_names_small.pkl')
+    model = sio.load('models/rhs_model.skops', trusted=True)
+    imputer = sio.load('models/imputer.skops', trusted=True)
+    cosine_sim = sio.load('models/cosine_sim_small.skops', trusted=True)
+    restaurant_names = sio.load('models/restaurant_names_small.skops', trusted=True)
     df = pd.read_csv('../data/restaurants_enriched_sample.csv')  # Use sample file
     
     #  FIX: Ensure SOME restaurants are marked as "at risk" for demo
@@ -217,3 +219,4 @@ elif mode == " Explore Data":
 st.markdown("---")
 
 st.markdown(" **Pro Tip**: This is a demo! In production, we’d use real-time data + A/B testing.")
+
