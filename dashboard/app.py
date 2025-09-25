@@ -18,10 +18,10 @@ st.set_page_config(
 # ============================
 @st.cache_resource
 def load_models():
-    model = joblib.load('../models/rhs_model.pkl')
-    imputer = joblib.load('../models/imputer.pkl')
-    cosine_sim = joblib.load('../models/cosine_sim_small.pkl')
-    restaurant_names = joblib.load('../models/restaurant_names_small.pkl')
+    model = joblib.load('models/rhs_model.pkl')
+    imputer = joblib.load('models/imputer.pkl')
+    cosine_sim = joblib.load('models/cosine_sim_small.pkl')
+    restaurant_names = joblib.load('models/restaurant_names_small.pkl')
     df = pd.read_csv('../data/restaurants_enriched_sample.csv')  # Use sample file
     
     #  FIX: Ensure SOME restaurants are marked as "at risk" for demo
@@ -215,4 +215,5 @@ elif mode == " Explore Data":
 # 🎉 FOOTER
 # ============================
 st.markdown("---")
+
 st.markdown(" **Pro Tip**: This is a demo! In production, we’d use real-time data + A/B testing.")
