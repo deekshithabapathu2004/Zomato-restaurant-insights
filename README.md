@@ -2,10 +2,13 @@
 
 > A Product Analyst project that predicts restaurant churn risk and recommends hidden gems to users — built with Python, scikit-learn, and Gradio.
 
-[![Live Demo](https://img.shields.io/badge/Demo-Hugging%20Face-ff6b6b?logo=huggingface&logoColor=white)](https://huggingface.co/spaces/DeekshithaBapathu/zomato_restaurant_insights)
+## 🚀 Live Demo  
+[**Launch on Hugging Face**](https://huggingface.co/spaces/DeekshithaBapathu/zomato_restaurant_insights)
 
-
-https://github.com/user-attachments/assets/1c7e3f0c-7a8e-4f9d-bb3a-9e8c9a9e8c9a
+Features:
+-  **Restaurant Health Check**: See your risk score + growth tips
+-  **Get Recommendations**: Find similar hidden gems
+-  **Explore Data**: Filter by location, cost, and rating
 
 ##  Problem Statement
 - **Users** see the same popular restaurants repeatedly and miss high-quality hidden gems.
@@ -37,11 +40,4 @@ I built a two-part system:
 | Discovery Boost | +50% |
 | Deployment | Live on Hugging Face |
 
-## 🚀 Live Demo  
-[**Launch on Hugging Face**](https://huggingface.co/spaces/DeekshithaBapathu/zomato_restaurant_insights)
-
-Features:
--  **Restaurant Health Check**: See your risk score + growth tips
--  **Get Recommendations**: Find similar hidden gems
--  **Explore Data**: Filter by location, cost, and rating
 
