@@ -2,7 +2,7 @@
 
 > A Product Analyst project that predicts restaurant churn risk and recommends hidden gems to users — built with Python, scikit-learn, and Gradio.
 
-## 🚀 Live Demo  
+##  Live Demo  
 [**Launch on Hugging Face**](https://huggingface.co/spaces/DeekshithaBapathu/zomato_restaurant_insights)
 
 Features:
