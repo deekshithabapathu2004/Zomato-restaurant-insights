@@ -16,22 +16,28 @@ st.set_page_config(
 # ============================
 #  LOAD MODELS & DATA
 # ============================
+import streamlit as st
+import pandas as pd
 import skops.io as sio
 
 @st.cache_resource
 def load_models():
-    model = sio.load('models/rhs_model.skops', trusted=True)
-    imputer = sio.load('models/imputer.skops', trusted=True)
-    cosine_sim = sio.load('models/cosine_sim_small.skops', trusted=True)
-    restaurant_names = sio.load('models/restaurant_names_small.skops', trusted=True)
-    df = pd.read_csv('../data/restaurants_enriched_sample.csv')  # Use sample file
+    # Load models with skops.io (secure + version-resilient)
+    model = sio.load("models/rhs_model.skops", trusted=True)
+    imputer = sio.load("models/imputer.skops", trusted=True)
+    cosine_sim = sio.load("models/cosine_sim_small.skops", trusted=True)
+    restaurant_names = sio.load("models/restaurant_names_small.skops", trusted=True)
     
-    #  FIX: Ensure SOME restaurants are marked as "at risk" for demo
-    # (In small sample, original logic may mark 0 restaurants as risky)
-    df['churn_risk_demo'] = ((df['total_orders'] < 100) & (df['rate'] < 4.0)).astype(int)
+    # Load sample data (MUST be in GitHub repo)
+    df = pd.read_csv("data/restaurants_enriched_sample.csv")
+    
+    # Ensure demo risk logic works (even if original churn_risk is missing)
+    if 'churn_risk_demo' not in df.columns:
+        df['churn_risk_demo'] = ((df['total_orders'] < 100) & (df['rate'] < 4.0)).astype(int)
     
     return model, imputer, cosine_sim, restaurant_names, df
 
+# Load models
 model, imputer, cosine_sim, restaurant_names, df = load_models()
 
 # ============================
@@ -219,4 +225,5 @@ elif mode == " Explore Data":
 st.markdown("---")
 
 st.markdown(" **Pro Tip**: This is a demo! In production, we’d use real-time data + A/B testing.")
+
 
